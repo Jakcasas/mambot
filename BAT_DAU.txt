@@ -6,6 +6,12 @@ MAMBOT 1.1 - WINDOWS 64-BIT
 3. Bam dup START_MAMBOT.cmd. Trinh duyet tu mo khi may chu san sang.
 4. Giu cua so may chu mo trong khi dung. Ctrl+C de dung.
 
+NEU BAN TAI mambot-main.zip TU NUT CODE TREN GITHUB:
+- ZIP do chi co ma nguon, khong kem runtime/python.
+- START_MAMBOT.cmd se tu tai goi Windows chinh thuc, kiem tra SHA-256 va chay.
+- May can Internet trong lan dau. Goi Windows truc tiep:
+  https://github.com/Jakcasas/mambot/releases/download/v1.1.0/Mambot.1.1.zip
+
 Khong can cai Python, Node.js, MongoDB hay tai thu vien qua Internet.
 Goi Windows x64 kem Python 3.12 va cac thu vien can thiet.
 Chat co san va kho tri thuc chay offline; AI ngoai va website HUIT can mang.

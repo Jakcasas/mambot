@@ -42,6 +42,19 @@ class StartupTests(unittest.TestCase):
                 self.assertIn(text,result.stdout)
 
     @unittest.skipUnless(os.name=='nt','Windows launcher')
+    def test_source_archive_explains_recovery_without_downloading_in_check_mode(self):
+        with launcher_scratch() as folder:
+            for name in ('START_MAMBOT.cmd','GET_PORTABLE_MAMBOT.cmd','run.py','backend/app.py'):
+                target=folder/name;target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(run.ROOT/name,target)
+            result=subprocess.run(['cmd.exe','/d','/c',str(folder/'START_MAMBOT.cmd'),'--check'],
+                                  cwd=run.ROOT,capture_output=True,text=True,timeout=20)
+            self.assertEqual(result.returncode,1)
+            self.assertIn('mambot-main',result.stdout)
+            self.assertIn('releases/download/v1.1.0/Mambot.1.1.zip',result.stdout)
+            self.assertFalse((folder/'var').exists())
+
+    @unittest.skipUnless(os.name=='nt','Windows launcher')
     def test_launcher_from_unrelated_directory_succeeds_without_browser(self):
         if not (run.ROOT/'runtime/python/python.exe').is_file():self.skipTest('Portable runtime not in source-only checkout')
         with launcher_scratch() as folder:

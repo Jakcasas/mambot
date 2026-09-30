@@ -2,7 +2,7 @@
 
 Giao diện xanh–trắng HUIT, logo trường phía trên tên Mambot. Web con hỗ trợ sinh viên và tra cứu tuyển sinh HUIT được phát triển từ `chatbot2.zip`, có giao diện riêng và các chốt kiểm soát code theo tài liệu LTX. Python/FastAPI + HTML/CSS/JavaScript thuần. Không cần React, npm install, MongoDB hoặc khóa AI để chạy chế độ mặc định.
 
-**Bắt đầu trên Windows 64-bit:** giải nén toàn bộ `Mambot 1.1.zip`, mở thư mục `Mambot 1.1` rồi bấm `START_MAMBOT.cmd`. Có sẵn Python và thư viện, không cần cài thêm. Đọc [BAT_DAU.txt](BAT_DAU.txt) và [HUONG_DAN.md](HUONG_DAN.md). Các lệnh bên dưới chỉ dành cho môi trường phát triển từ mã nguồn.
+**Bắt đầu trên Windows 64-bit:** tải **[Mambot 1.1 ZIP đầy đủ](https://github.com/Jakcasas/mambot/releases/download/v1.1.0/Mambot.1.1.zip)** ở phần **Releases → Assets**. Chọn **Extract All / Giải nén tất cả**, mở thư mục `Mambot 1.1` rồi bấm `START_MAMBOT.cmd`. ZIP của nút **Code → Download ZIP** tên `mambot-main.zip` chỉ chứa mã nguồn. Nếu đã tải gói đó, `START_MAMBOT.cmd` sẽ tự lấy bản Windows từ Releases, kiểm tra SHA-256 và giải nén trước khi chạy. Máy cần kết nối mạng cho lần đầu này. Đọc [BAT_DAU.txt](BAT_DAU.txt) và [HUONG_DAN.md](HUONG_DAN.md). Các lệnh bên dưới chỉ dành cho môi trường phát triển từ mã nguồn.
 
 ```powershell
 py -3 -m venv .venv
