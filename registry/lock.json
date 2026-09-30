@@ -1,0 +1,10 @@
+{
+  "knowledge.snapshot": {
+    "version": "1.0.0",
+    "checksum": "sha256:8565fd0f09b38ffee4c8294a6919bfa6bec4514f25543bee187476c3909c7296"
+  },
+  "knowledge.semantic": {
+    "version": "1.0.0",
+    "checksum": "sha256:3622e5b1e1ffb81ba272167482b63a46bf3d23610dfa1b932bcaea2e4cdd51d4"
+  }
+}

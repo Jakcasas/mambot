@@ -1,0 +1,16 @@
+.student-tools{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.student-tools>*{padding:10px 14px;border:1px solid #bdd1e5;border-radius:4px;background:#eef5fc;color:#0b5598;font-size:13px;text-decoration:none}
+.student-detail{border-top:1px solid #d2e0ec;padding:16px 0;font-size:14px;line-height:1.65}
+.student-detail summary{cursor:pointer;font-weight:700;color:#0b5598}
+.student-detail p{margin:12px 0}.student-detail a{color:#0b5598;text-decoration:underline}
+.planner-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.planner-form label{display:flex;flex-direction:column;gap:5px;font-size:12px;min-width:0}
+.planner-form input:not([type=checkbox]){width:100%;min-width:0;padding:11px;border:1px solid #a8c2dc;background:#fff;color:#183449;border-radius:4px;font:inherit;font-size:14px;box-sizing:border-box}
+.planner-wide{grid-column:1/-1}.planner-form fieldset{border:1px solid #c6d8e8;padding:12px}.planner-form legend{padding:0 5px}
+.planner-weekdays{display:flex;flex-wrap:wrap;gap:14px}.planner-weekdays label{flex-direction:row;align-items:center;font-size:14px}.planner-weekdays input{width:18px;height:18px;accent-color:#0b5598}
+.planner-form button{padding:14px;background:#0b5598;color:white;border:0;border-radius:4px;font:inherit;cursor:pointer}
+#planner-status{color:#0b5598;font-weight:600;overflow-wrap:anywhere}
+.planner-days{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.planner-days section{border:1px solid #cfdfed;border-radius:5px;padding:12px;background:#f7faff;min-width:0}.planner-days h3{font-size:13px;margin:0 0 8px}.planner-days ul{list-style:none;margin:0;padding:0;font-size:12px;overflow-wrap:anywhere}.planner-days .break{color:#657b8d}
+#planner-canvas{display:block;width:100%;height:auto;border:1px solid #d2e0ec;border-radius:5px}#planner-download:not([hidden]){display:inline-block;padding:12px 18px;margin-top:12px;background:#0b5598;color:#fff;border-radius:4px;text-decoration:none}
+.student-links{display:flex;flex-direction:column;gap:10px}.student-links a{padding:10px;border:1px solid #d2e0ec;border-radius:4px}
+@media(max-width:540px){.planner-form{grid-template-columns:1fr}.planner-days{grid-template-columns:1fr}.student-tools>*{font-size:12px}}

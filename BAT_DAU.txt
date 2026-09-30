@@ -1,0 +1,25 @@
+MAMBOT 1.1 - WINDOWS 64-BIT
+========================
+
+1. Bam chuot phai Mambot 1.1.zip, chon Extract All / Giai nen tat ca.
+2. Mo thu muc Mambot 1.1 da giai nen, KHONG chay CMD ngay trong cua so ZIP.
+3. Bam dup START_MAMBOT.cmd. Trinh duyet tu mo khi may chu san sang.
+4. Giu cua so may chu mo trong khi dung. Ctrl+C de dung.
+
+Khong can cai Python, Node.js, MongoDB hay tai thu vien qua Internet.
+Goi Windows x64 kem Python 3.12 va cac thu vien can thiet.
+Chat co san va kho tri thuc chay offline; AI ngoai va website HUIT can mang.
+
+Mac dinh: http://127.0.0.1:8000/mambot/
+Neu cong 8000 ban, chuong trinh thu 8001-8009 va in dia chi da chon.
+Neu trinh duyet khong tu mo, copy dia chi tu cua so Mambot.
+Neu dat PORT thu cong, chuong trinh chi dung cong do.
+
+NEU VAN LOI
+- Chay KIEM_TRA_MAMBOT.cmd va doc thong bao PASS/LOI.
+- Bao thieu runtime: giai nen LAI TOAN BO ZIP vao thu muc moi.
+- Khong chi chep START_MAMBOT.cmd; giu nguyen runtime/backend/static/data/registry.
+- Khong can thu muc .venv cu. Khong ho tro Windows 32-bit.
+- macOS/Linux: dung ma nguon va huong dan cai thu vien trong HUONG_DAN.md.
+
+Xem HUONG_DAN.md de cau hinh AI va phat trien ma nguon.

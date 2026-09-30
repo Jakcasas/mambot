@@ -1,0 +1,6 @@
+-c requirements.lock.txt
+fastapi==0.115.12
+uvicorn==0.34.2
+jsonschema==4.23.0
+pymongo==4.12.1
+httpx==0.28.1

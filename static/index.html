@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b5598"><meta name="description" content="Mambot — cùng sinh viên học tập, định hướng và tra cứu thông tin HUIT có nguồn.">
+  <title>Mambot 1.1 — Hỏi. Hiểu. Chọn.</title>
+  <link rel="icon" type="image/svg+xml" href="./static/favicon.svg">
+  <link rel="stylesheet" href="./static/style.css">
+  <link rel="stylesheet" href="./static/student.css">
+  <script type="module" src="./static/js/app.view.js"></script>
+</head>
+<body>
+  <a class="skip" href="#question">Đến ô nhập câu hỏi</a>
+  <header class="masthead">
+    <div class="brand"><img class="school-logo" src="./static/huit-logo.jpg" width="54" height="54" alt="Logo Trường Đại học Công Thương Thành phố Hồ Chí Minh — HUIT"><a class="wordmark" href="#chat" aria-label="Mambot, trang chính">MAMBOT<span>✳</span></a></div>
+    <div class="mast-note"><span>HỎI. HIỂU. CHỌN.</span><span>HUIT KNOWLEDGE ASSISTANT</span><span>EST. 2026 / VI</span></div>
+    <a class="external" href="https://ts.huit.edu.vn/" target="_blank" rel="noopener noreferrer">CỔNG TUYỂN SINH <span>↗</span></a>
+  </header>
+  <div class="ticker"><span><i class="status-dot"></i> ĐỒNG HÀNH CÙNG SINH VIÊN</span><span id="top-status">ĐANG KẾT NỐI…</span><span class="ticker-end">TỪ CÂU HỎI ĐẾN LỰA CHỌN ↗</span></div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div><div class="eyebrow">MAMBOT INDEX / 001</div>
+      <nav aria-label="Điều hướng chính">
+        <button class="nav-item active" data-page="chat" aria-current="page"><span>01</span> Trò chuyện <b>↗</b></button>
+        <button class="nav-item" data-page="library"><span>02</span> Kho tri thức <b>↗</b></button>
+        <button class="nav-item" data-page="system"><span>03</span> LTX / Cách hoạt động <b>↗</b></button>
+      </nav>
+      <button id="new-chat" class="new-chat">＋ CUỘC TRÒ CHUYỆN MỚI</button></div>
+      <div class="sidebar-bottom"><div class="cross-mark" aria-hidden="true">✳</div><p>Mỗi lựa chọn tốt<br>bắt đầu từ một câu hỏi.</p><div class="small-rule"></div><p class="tiny">DỰ ÁN HỌC TẬP ĐỘC LẬP<br>KHÔNG PHẢI KÊNH TƯ VẤN CHÍNH THỨC HUIT.</p><span class="tiny">MAMBOT 1.1</span></div>
+    </aside>
+    <main id="main">
+      <section id="page-chat" class="page active" aria-label="Trò chuyện với Mambot">
+        <div class="workspace-top"><span>01 / CONVERSATION</span><div class="chat-tools"><button id="new-chat-mobile" class="text-button">TẠO MỚI ＋</button><button id="export-chat" class="text-button" disabled>XUẤT .TXT ↓</button><button id="export-json" class="text-button" disabled aria-label="Xuất hội thoại dạng JSON">JSON ↓</button></div></div>
+        <div class="chat-layout">
+          <div class="chat-main">
+            <div id="welcome" class="welcome">
+              <div class="welcome-kicker"><span class="mini-mark">m.</span> XIN CHÀO, MÌNH LÀ MAMBOT</div>
+              <h1>Hỏi điều bạn<br>đang <span class="serif-word">nghĩ.</span><span class="heading-star" aria-hidden="true">✳</span></h1>
+              <p class="intro">Một bài khó, một kế hoạch học, hay một hướng đi mới.<br>Mình cùng bạn tìm bước tiếp theo.</p>
+              <div class="suggestion-head"><span>CHỌN MỘT ĐIỂM BẮT ĐẦU</span><span>↓</span></div>
+              <div class="suggestions">
+                <button data-question="Giúp mình lập kế hoạch ôn thi"><span class="suggestion-index">MB—001 / HỌC TẬP</span><strong>Chia nhỏ việc học.<br>Bắt đầu nhẹ hơn.</strong><span class="arrow">↗</span></button>
+                <button data-question="Mình chưa biết chọn ngành nào"><span class="suggestion-index">MB—002 / ĐỊNH HƯỚNG</span><strong>Tìm một hướng đi<br>hợp với mình</strong><span class="arrow">↗</span></button>
+                <button data-question="Giúp mình soạn email cho giảng viên"><span class="suggestion-index">MB—003 / KỸ NĂNG</span><strong>Viết điều bạn<br>muốn nói</strong><span class="arrow">↗</span></button>
+                <button data-question="Học phí HUIT năm 2026 được tính như thế nào?"><span class="suggestion-index">MB—004 / TRA CỨU HUIT</span><strong>Hỏi thông tin.<br>Đọc cùng nguồn.</strong><span class="arrow">↗</span></button>
+              </div>
+            </div>
+            <div id="messages" class="messages" role="log" aria-label="Nội dung hội thoại" aria-live="off"></div>
+            <div class="composer-wrap">
+              <div id="chat-shortcuts" class="chat-shortcuts" aria-label="Gợi ý trò chuyện" hidden>
+                <button data-question="Giúp mình lập kế hoạch ôn thi">Lên lịch học</button>
+                <button data-question="Mình đang áp lực vì việc học">Chia sẻ áp lực</button>
+                <button data-question="Mình là tân sinh viên, nên bắt đầu từ đâu?">Tân sinh viên</button>
+                <button data-question="Các phương thức xét tuyển HUIT năm 2026 là gì?">Tra cứu HUIT ↗</button>
+              </div>
+              <p id="chat-error" class="error" role="alert" hidden></p><button id="retry-chat" class="text-button" hidden>THỬ LẠI CÂU HỎI ↻</button>
+              <div id="chat-status" class="chat-status" role="status" aria-live="polite">Sẵn sàng cho câu hỏi đầu tiên.</div>
+              <form id="chat-form" class="composer">
+                <label class="sr-only" for="question">Nhập câu hỏi cho Mambot</label>
+                <textarea id="question" rows="2" maxlength="800" placeholder="Bạn đang cần giúp điều gì?" required></textarea>
+                <button type="button" id="stop-chat" class="stop-button" hidden>DỪNG ■</button>
+                <button type="submit" id="send-chat" class="send-button" aria-label="Gửi câu hỏi">↗</button>
+              </form>
+              <div class="composer-note"><span>ENTER ĐỂ GỬI · SHIFT + ENTER ĐỂ XUỐNG DÒNG</span><span id="char-count">0 / 800</span></div>
+              <label class="session-toggle"><input type="checkbox" id="remember-chat" aria-describedby="session-note"> Giữ hội thoại trong tab này</label>
+              <p id="session-note" class="data-note">Chưa bật lưu phiên. Tải lại trang sẽ xóa hội thoại.</p>
+              <p id="session-warning" class="error" role="status" hidden></p>
+              <p class="data-note">Gợi ý học tập để tham khảo. Thông tin HUIT cần đối chiếu nguồn hiện hành. Không gửi mật khẩu hoặc OTP.</p>
+              <p id="answer-announcement" class="sr-only" role="status" aria-live="polite"></p>
+              <div class="student-tools">
+                <button data-question="Mình đang áp lực và chỉ muốn được lắng nghe">Mình muốn chia sẻ</button>
+                <a href="#study-planner" id="open-planner">Lịch học bằng ảnh ↓</a>
+              </div>
+              <details id="study-planner" class="student-detail">
+                <summary>Lịch học bằng ảnh · 7 ngày</summary>
+                <p>Lịch tự học cá nhân, ngoài giờ lên lớp và làm thêm. Chia phiên tối đa 25 phút, nghỉ 5 phút; chọn ít nhất một ngày nghỉ.</p>
+                <form id="planner-form" class="planner-form">
+                  <label class="planner-wide">Các môn (ngăn bằng dấu phẩy)<input id="plan-subjects" maxlength="245" placeholder="Giải tích, Tiếng Anh, Python" required></label>
+                  <label>Ngày bắt đầu<input id="plan-date" type="date" min="2000-01-01" max="2100-12-25" required></label>
+                  <label>Tổng phút/ngày, gồm nghỉ<input id="plan-minutes" type="number" min="30" max="180" step="5" value="90" required></label>
+                  <label>Rảnh từ<input id="plan-start" type="time" value="18:00" required></label>
+                  <label>Đến<input id="plan-end" type="time" value="20:00" required></label>
+                  <fieldset class="planner-wide"><legend>Ngày dành cho tự học</legend><div class="planner-weekdays">
+                    <label><input type="checkbox" name="weekday" value="1" checked>T2</label><label><input type="checkbox" name="weekday" value="2" checked>T3</label><label><input type="checkbox" name="weekday" value="3" checked>T4</label><label><input type="checkbox" name="weekday" value="4" checked>T5</label><label><input type="checkbox" name="weekday" value="5" checked>T6</label><label><input type="checkbox" name="weekday" value="6" checked>T7</label><label><input type="checkbox" name="weekday" value="0">CN</label>
+                  </div></fieldset>
+                  <button class="primary planner-wide" type="submit">Tạo lịch của mình ↗</button>
+                </form>
+                <p id="planner-status" role="status" aria-live="polite"></p>
+                <div id="planner-result" hidden><div id="planner-days" class="planner-days"></div><canvas id="planner-canvas" role="img" aria-label="Ảnh lịch tự học, nội dung có trong danh sách phía trên"></canvas><a id="planner-download" download="Mambot-lich-hoc.png" hidden>Tải ảnh PNG ↓</a></div>
+                <p class="data-note">Lịch được tạo trên trình duyệt, không gửi lên máy chủ. Nếu quá tải, hãy giảm thời lượng và điều chỉnh theo sức của mình.</p>
+              </details>
+              <details class="student-detail"><summary>Kênh HUIT cho tân sinh viên</summary><p>Bắt đầu từ chuyên trang người học; kiểm tra đúng học kỳ và thông báo hiện hành trước khi làm thủ tục.</p><div class="student-links">
+                <a href="https://huit.edu.vn/students" target="_blank" rel="noopener noreferrer">Chuyên trang người học ↗</a>
+                <a href="https://sinhvien.huit.edu.vn/" target="_blank" rel="noopener noreferrer">Cổng sinh viên · lịch, kết quả, công nợ ↗</a>
+                <a href="https://dkhp.huit.edu.vn/" target="_blank" rel="noopener noreferrer">Đăng ký học phần ↗</a>
+                <a href="https://ols.huit.edu.vn/" target="_blank" rel="noopener noreferrer">Học trực tuyến ↗</a>
+                <a href="https://ttktx.huit.edu.vn/" target="_blank" rel="noopener noreferrer">Trung tâm Ký túc xá ↗</a>
+              </div><p class="data-note">Đối chiếu đường dẫn tại huit.edu.vn/students ngày 23/09/2026. Mambot không đọc tài khoản, xác nhận hạn nộp hay tình trạng phòng ở.</p></details>
+              <details class="student-detail"><summary>Khi bạn muốn chia sẻ áp lực</summary><p>Mambot có thể lắng nghe và gợi ý bước nhỏ để chăm sóc bản thân. Đây là hỗ trợ tham khảo từ AI, không phải chẩn đoán hay trị liệu. Nếu khó khăn kéo dài hoặc ảnh hưởng sinh hoạt, hãy tìm bác sĩ/chuyên gia sức khỏe tâm thần. Khi có nguy hiểm tức thời, liên hệ cấp cứu hoặc người tin cậy ở gần.</p><p>Hướng dẫn dựa trên bài khảo sát sinh viên TP.HCM (Trần Phú Vinh và cộng sự, 2026), bài lý luận về học sinh THCS (Nguyễn Thị Hồng Xuân, 2025) và <a href="https://www.who.int/news-room/questions-and-answers/item/stress/" target="_blank" rel="noopener noreferrer">hướng dẫn WHO về căng thẳng</a>. Hai bài không được dùng để chẩn đoán hay suy rộng kết quả cho sinh viên HUIT.</p><p class="data-note">Nhánh chia sẻ tâm lý dùng hướng dẫn tại máy chủ Mambot, không gọi nhà cung cấp AI. Khi đổi chủ đề, lịch sử nhạy cảm cũng được bỏ khỏi yêu cầu gửi AI. Không nhập thông tin định danh; xuất hội thoại hoặc bật giữ phiên có thể lưu nội dung trên thiết bị của bạn.</p></details>
+            </div>
+          </div>
+          <aside class="context-panel" aria-label="Nguồn tham khảo">
+            <div class="poster" aria-hidden="true"><div class="poster-top"><span>MB / HUIT</span><span>KNOWLEDGE<br>IN MOTION</span></div><svg class="m-symbol" viewBox="0 0 240 190"><path d="M20 170V20h38l62 80 62-80h38v150h-42V92l-58 74-58-74v78z" fill="currentColor"/></svg><div class="poster-bottom"><span>HỎI HÔM NAY.<br>MỞ NGÀY MAI.</span><span>↗</span></div></div>
+            <div class="context-title"><span>GHI CHÚ / NGUỒN</span><span id="source-count">[00]</span></div>
+            <div id="source-list" class="source-list"><p class="empty-sources">Câu trả lời có điểm tựa.<br><span>Nguồn tham khảo sẽ xuất hiện ở đây sau khi bạn đặt câu hỏi.</span></p></div>
+            <div class="context-foot"><span class="status-dot"></span><div><b>ĐỌC NGUỒN, HIỂU RÕ HƠN.</b><p>Thông tin tuyển sinh có thể thay đổi theo từng đợt công bố.</p></div></div>
+            <a class="official-help" href="https://chatbot.huit.edu.vn/" target="_blank" rel="noopener noreferrer">ĐẾN CHATBOT HUIT CHÍNH THỨC ↗<span>Cần thông tin của trường? Đối chiếu và tìm kênh liên hệ tại đây.</span></a>
+          </aside>
+        </div>
+      </section>
+      <section id="page-library" class="page" aria-label="Kho tri thức" hidden>
+        <div class="workspace-top"><span>02 / KNOWLEDGE ARCHIVE</span><span id="library-count">ĐANG TẢI…</span></div>
+        <div class="section-content"><div class="section-title"><h2>Đọc từ<br><em>nguồn.</em></h2><p>Bản lưu từ chatbot2.<br>Tìm theo ngành, chủ đề hoặc nội dung.</p></div>
+          <div class="library-toolbar"><label for="library-search">TÌM TRONG KHO</label><input id="library-search" type="search" placeholder="Ví dụ: công nghệ thông tin…"><label class="sr-only" for="category">Lọc chủ đề</label><select id="category"><option value="all">Tất cả chủ đề</option><option value="major">Ngành học</option><option value="tuition">Học phí</option><option value="admission">Xét tuyển</option><option value="scholarship">Học bổng</option><option value="cutoff">Điểm tuyển sinh</option><option value="contact">Liên hệ</option></select></div>
+          <p class="data-note">Nội dung trong ZIP chưa được xác minh lại với website hiện hành.</p>
+          <div id="library-status" role="status"></div><div id="library-items" class="library-items"></div>
+        </div>
+      </section>
+      <section id="page-system" class="page" aria-label="LTX và cách hoạt động" hidden>
+        <div class="workspace-top"><span>03 / BEHIND THE ANSWER</span><button id="refresh-system" class="text-button">KIỂM TRA LẠI ↻</button></div>
+        <div class="section-content"><div class="section-title"><h2>Một câu hỏi.<br><em>Hai chốt chặn.</em></h2><p>LTX đặt ranh giới rõ ràng<br>cho mỗi thay đổi do AI tạo ra.</p></div>
+        <div id="system-status" role="status" class="system-status">Đang kiểm tra…</div>
+        <div class="gate-grid"><article><span class="eyebrow">01 / FRONTEND GATE</span><h3>Giao diện chỉ<br>gửi hành động.</h3><p>Controller quản lý trạng thái, lịch sử, hủy yêu cầu và chống phản hồi cũ. Chỉ lớp HTTP dùng kết nối mạng.</p><div class="flow">VIEW → CONTROLLER<br>→ FEATURE API → HTTP</div></article><article><span class="eyebrow">02 / DATA GATE</span><h3>Dữ liệu chỉ qua<br>operation đã đăng ký.</h3><p>Gateway kiểm tra phiên bản, checksum, tham số, quyền đọc, giới hạn và cấu trúc đầu ra trước khi trả kết quả.</p><div class="flow">ROUTE → SERVICE → OPERATION<br>→ GATEWAY → DATA</div></article></div>
+        <div class="method"><span class="eyebrow">CÁCH MAMBOT TÌM THÔNG TIN</span><h3>TF–IDF × Cosine similarity</h3><p>Từ ngữ được chuẩn hóa tiếng Việt rồi chuyển thành vector. Mambot so sánh hướng của các vector để tìm đoạn liên quan. Điểm tương đồng đo mức khớp văn bản, không phải xác suất câu trả lời đúng.</p><code>similarity(A, B) = (A · B) / (‖A‖ × ‖B‖)</code><p>Khi cấu hình thêm máy chủ: MongoDB + E5 cho tìm kiếm ngữ nghĩa, OpenRouter cho câu trả lời diễn đạt tự nhiên. Mặc định dùng hướng dẫn học tập có sẵn và trích đoạn trong bản lưu.</p></div>
+        <details class="rule-detail"><summary>AI được sửa code theo quy trình nào? <span>＋</span></summary><p>Đọc AGENTS.md → sửa đúng lớp → thêm test hành vi → chạy scripts/verify.py. Operation đang dùng là bất biến; thay đổi cần phiên bản mới và kiểm duyệt lock. CI chặn lỗi kiến trúc phổ biến. Các kiểm tra này hỗ trợ review, không thể đảm bảo mọi code AI đều đúng.</p></details>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer class="footer"><span>MAMBOT © 2026</span><span>MỘT KHOẢNG KHÔNG CHO NHỮNG CÂU HỎI.</span><span>HUIT / VIETNAM ↗</span></footer>
+  <dialog id="reset-dialog"><form method="dialog"><span class="eyebrow">BẮT ĐẦU LẠI</span><h2>Cuộc trò chuyện mới?</h2><p>Hội thoại hiện tại, bản lưu trong tab và nội dung đang soạn sẽ được xóa. Bạn có thể xuất hội thoại trước khi bắt đầu lại.</p><div class="dialog-actions"><button value="cancel">Giữ lại</button><button class="primary" value="confirm">Bắt đầu mới ↗</button></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "input": "chatbot2.zip",
+  "zip_sha256": "13a6f48112f53384fb05bd7eb50b1638df6ddf6224ebcb5b1697dbd4c978dc73",
+  "records": 45,
+  "knowledge_sha256": "00782b1b75850d1ba578090f34d63cbd689bef067c475c93461f6df4ad3d8b97",
+  "source": "huit_chatbot_handoff (2)/huit_vs/mongodb_export_temp/huit_kb.json",
+  "source_date": "2026-07-27",
+  "note": "Snapshot supplied by user; not independently reverified against live admissions pages."
+}

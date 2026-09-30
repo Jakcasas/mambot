@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+var/
+node_modules/
+*.log
+
+# Portable runtimes belong in downloadable ZIPs, not source history.
+runtime/
+*.zip
+.env.*
+!.env.example

@@ -1,0 +1,1 @@
+{"name":"mambot-frontend-contracts","private":true,"type":"module","scripts":{"test":"node tests/frontend.test.mjs"}}
