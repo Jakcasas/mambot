@@ -1,9 +1,11 @@
 """ASGI transport controls; no private Request._body mutation or business logic."""
 import asyncio
 import logging
+import os
 import threading
 import time
 from collections import OrderedDict, deque
+from urllib.parse import urlsplit
 from uuid import uuid4
 from starlette.datastructures import Headers, MutableHeaders, URL
 from starlette.responses import JSONResponse
@@ -17,6 +19,24 @@ SECURITY_HEADERS = {
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
     'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
 }
+
+def parse_allowed_origins(raw):
+    """Accept only explicit HTTPS origins; never accept a wildcard or URL path."""
+    origins = [part.strip() for part in raw.split(',') if part.strip()]
+    if len(origins) > 8:
+        raise ValueError('MAMBOT_ALLOWED_ORIGINS exceeds eight origins')
+    for origin in origins:
+        try:
+            url = urlsplit(origin)
+            valid = (url.scheme == 'https' and url.hostname and
+                     origin == f'https://{url.hostname}' and
+                     not url.username and not url.password and not url.path and
+                     not url.query and not url.fragment)
+        except ValueError:
+            valid = False
+        if not valid:
+            raise ValueError('MAMBOT_ALLOWED_ORIGINS requires bare HTTPS origins')
+    return frozenset(origins)
 
 class RateLimiter:
     def __init__(self):
@@ -38,11 +58,12 @@ class RateLimiter:
             return allowed
 
 class HttpBoundaries:
-    def __init__(self, app, limiter, body_timeout=10, max_chats=4):
+    def __init__(self, app, limiter, body_timeout=10, max_chats=4, allowed_origins=None):
         self.app = app
         self.limiter = limiter
         self.body_timeout = body_timeout
         self.chat_slots = threading.BoundedSemaphore(max_chats)
+        self.allowed_origins = parse_allowed_origins(os.getenv('MAMBOT_ALLOWED_ORIGINS', '') if allowed_origins is None else ','.join(allowed_origins))
 
     async def __call__(self, scope, receive, send):
         if scope['type'] != 'http':
@@ -85,7 +106,7 @@ class HttpBoundaries:
                 origin = headers.get('origin')
                 url = URL(scope=scope)
                 expected_origin = f'{url.scheme}://{url.netloc}'
-                if origin and origin != expected_origin:
+                if origin and origin != expected_origin and origin not in self.allowed_origins:
                     return await reject(403, 'Nguồn yêu cầu không hợp lệ.')
                 if headers.get('content-type', '').split(';')[0].strip().lower() != 'application/json':
                     return await reject(415, 'Yêu cầu phải dùng JSON.')
