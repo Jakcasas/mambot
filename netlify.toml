@@ -1,0 +1,6 @@
+[build]
+base = "netlify-site"
+command = "node build.mjs"
+publish = "dist"
+
+
